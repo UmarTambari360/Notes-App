@@ -14,16 +14,75 @@ function createNoteElement(title, content) {
   const noteTitle = document.createElement("h2");
   noteTitle.textContent = title;
 
+  //event listener for note title to be able to edit on click
+  noteTitle.addEventListener("click", function (e) {
+    const input = document.createElement("input");
+    input.type = "text";
+
+    input.value = noteTitle.textContent;
+    noteElement.replaceChild(input, noteTitle);
+    input.focus();
+
+    input.addEventListener("blur", function () {
+      noteTitle.textContent = input.value;
+      noteElement.replaceChild(noteTitle, input);
+      saveNotes();
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        input.blur(); // Save changes on Enter key press
+      }
+    });
+  });
   const noteContent = document.createElement("p");
   noteContent.textContent = content;
 
+  //event listener for note content to be able to edit on clickl
+  noteContent.addEventListener("dblclick", function (e) {
+    const textarea = documen.createElement("textarea");
+    textarea.value = noteContent.textContent;
+
+    noteElement.replaceChild(textarea, noteContent);
+    textarea.focus();
+
+    textarea.addEventListener("blur", function (e) {
+      noteContent.textContent = textarea.value;
+      noteElement.replaceChild(noteContent, textarea);
+      saveNotes();
+    });
+    textarea.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        textarea.blur(); // Save changes on Enter key press
+      }
+    });
+  });
+  noteContent.addEventListener("click", function (e) {
+    const textarea = document.createElement("textarea");
+    textarea.value = noteContent.textContent;
+    noteElement.replaceChild(textarea, noteContent);
+    textarea.focus();
+
+    textarea.addEventListener("blur", function () {
+      noteContent.textContent = textarea.value;
+      noteElement.replaceChild(noteContent, textarea);
+      saveNotes();
+    });
+    textarea.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        textarea.blur(); // Save changes on Enter key press
+      }
+    });
+  });
+  // delete button
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
   deleteButton.classList.add("deleteNoteButton");
 
   deleteButton.addEventListener("click", function () {
-    notesContainer.removeChild(noteElement);
-    saveNotes();
+    if (confirm("Are you sure you want to delete this note?")) {
+      notesContainer.removeChild(noteElement);
+      saveNotes();
+    }
   });
 
   noteElement.appendChild(noteTitle);
