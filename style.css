@@ -148,6 +148,45 @@ header {
   background: #2e7031;
 }
 
+/* Inline editing styles for notes */
+.note input[type="text"] {
+  width: 100%;
+  font-size: 1.1rem;
+  color: #3f51b5;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  background: #f6f8fa;
+  transition: border 0.2s;
+}
+
+.note input[type="text"]:focus {
+  border: 1.5px solid #3f51b5;
+  background: #e8eaf6;
+}
+
+.note textarea {
+  width: 100%;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  outline: none;
+  background: #f6f8fa;
+  resize: vertical;
+  transition: border 0.2s;
+  min-height: 80px;
+}
+
+.note textarea:focus {
+  border: 1.5px solid #3f51b5;
+  background: #e8eaf6;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .notes-container {
