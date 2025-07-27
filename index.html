@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header title -->
+    <header><h1>My Notes App</h1></header>
+    <main>
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <form action="">
+          <input type="text" placeholder="Search notes..." id="searchInput" />
+          <button type="submit" id="searchButton">Search</button>
+        </form>
+      </div>
+      <!-- Notes container -->
+      <div class="notes-container">
+        <!-- Note input form -->
+        <div class="note-input">
+          <input type="text" placeholder="Title" id="noteTitle" />
+          <textarea
+            placeholder="Write your note here..."
+            id="noteContent"
+          ></textarea>
+          <button id="addNoteButton">Add Note</button>
+        </div>
+        <!-- Notes will be dynamically inserted here by JavaScript -->
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
